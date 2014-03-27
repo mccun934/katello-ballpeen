@@ -15,6 +15,7 @@ Group: Development/Languages
 License: GPLv3
 URL: https://github.com/Katello/hammer-cli-csv
 Source0: %{gemname}-%{version}.gem
+Source1: csv.yml
 
 %if 0%{?rhel} == 6 || 0%{?fedora} < 19
 Requires: ruby(abi)
@@ -51,6 +52,8 @@ gem install --local --install-dir .%{gem_dir} \
             --force %{SOURCE0}
 
 %install
+mkdir -p %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d¬
+install -m 755 %{SOURCE1} %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d/csv.yml
 mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
@@ -58,8 +61,6 @@ cp -pa .%{gem_dir}/* \
 %files
 %dir %{geminstdir}
 %{geminstdir}/lib
-%{geminstdir}/test
-%{geminstdir}/.yardoc
 %exclude %{gem_dir}/cache/%{gemname}-%{version}.gem
 %{gem_dir}/specifications/%{gemname}-%{version}.gemspec
 
