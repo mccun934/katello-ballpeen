@@ -1,5 +1,5 @@
 %global gemname hammer_cli_foreman
-%global confdir foreman
+%global confdir hammer
 
 %if 0%{?rhel}
 %global gem_dir /usr/lib/ruby/gems/1.8
@@ -9,7 +9,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
-Version: 0.0.18
+Version: 0.1.0
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -22,7 +22,7 @@ Requires: ruby(abi)
 %endif
 
 Requires: ruby(rubygems)
-Requires: rubygem(hammer_cli) >= 0.0.18
+Requires: rubygem(hammer_cli) >= 0.1.0
 BuildRequires: ruby(rubygems)
 %if 0%{?fedora}
 BuildRequires: rubygems-devel
@@ -52,8 +52,8 @@ gem install --local --install-dir .%{gem_dir} \
             --force %{SOURCE0}
 
 %install
-mkdir -p %{buildroot}%{_sysconfdir}/%{confdir}/hammer.modules.d
-install -m 755 %{SOURCE1} %{buildroot}%{_sysconfdir}/%{confdir}/hammer.modules.d/foreman.yml
+mkdir -p %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d
+install -m 755 %{SOURCE1} %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d/foreman.yml
 mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
@@ -62,7 +62,7 @@ cp -pa .%{gem_dir}/* \
 %dir %{geminstdir}
 %{geminstdir}/lib
 %{geminstdir}/locale
-%config(noreplace) %{_sysconfdir}/%{confdir}/hammer.modules.d/foreman.yml
+%config(noreplace) %{_sysconfdir}/%{confdir}/cli.modules.d/foreman.yml
 %exclude %{gem_dir}/cache/%{gemname}-%{version}.gem
 %{gem_dir}/specifications/%{gemname}-%{version}.gemspec
 
@@ -74,6 +74,10 @@ cp -pa .%{gem_dir}/* \
 
 
 %changelog
+* Wed Mar 26 2014 Martin Bačovský <martin.bacovsky@gmail.com> 0.1.0-1
+- Bump to 0.1.0 (martin.bacovsky@gmail.com)
+- hammer_cli_foreman - new config location (tstrachota@redhat.com)
+
 * Wed Jan 29 2014 Martin Bačovský <mbacovsk@redhat.com> 0.0.18-1
 - Bump to 0.0.18 (mbacovsk@redhat.com)
 
