@@ -1,5 +1,5 @@
 %global gemname hammer_cli_katello
-%global confdir foreman
+%global confdir hammer
 
 %if 0%{?rhel}
 %global gem_dir /usr/lib/ruby/gems/1.8
@@ -21,8 +21,8 @@ Source1: katello.yml
 Requires: ruby(abi)
 %endif
 Requires: ruby(rubygems)
-Requires: rubygem(hammer_cli)
-Requires: rubygem(hammer_cli_foreman_tasks)
+Requires: rubygem(hammer_cli_foreman_tasks) >= 0.1.0
+Requires: rubygem(hammer_cli_foreman_tasks) < 0.2.0
 BuildRequires: ruby(rubygems)
 %if 0%{?fedora}
 BuildRequires: rubygems-devel
@@ -51,8 +51,8 @@ gem install --local --install-dir .%{gem_dir} \
             --force %{SOURCE0}
 
 %install
-mkdir -p %{buildroot}%{_sysconfdir}/%{confdir}/hammer.modules.d
-install -m 755 %{SOURCE1} %{buildroot}%{_sysconfdir}/%{confdir}/hammer.modules.d/katello.yml
+mkdir -p %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d
+install -m 755 %{SOURCE1} %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d/katello.yml
 mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
         %{buildroot}%{gem_dir}/
