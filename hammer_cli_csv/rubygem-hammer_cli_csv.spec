@@ -52,7 +52,7 @@ gem install --local --install-dir .%{gem_dir} \
             --force %{SOURCE0}
 
 %install
-mkdir -p %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d¬
+mkdir -p %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d
 install -m 755 %{SOURCE1} %{buildroot}%{_sysconfdir}/%{confdir}/cli.modules.d/csv.yml
 mkdir -p %{buildroot}%{gem_dir}
 cp -pa .%{gem_dir}/* \
