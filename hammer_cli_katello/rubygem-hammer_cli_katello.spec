@@ -61,7 +61,7 @@ cp -pa .%{gem_dir}/* \
 %dir %{geminstdir}
 %{geminstdir}/lib
 %{geminstdir}/locale
-%config(noreplace) %{_sysconfdir}/%{confdir}/hammer.modules.d/katello.yml
+%config(noreplace) %{_sysconfdir}/%{confdir}/cli.modules.d/katello.yml
 %exclude %{gem_dir}/cache/%{gemname}-%{version}.gem
 %{gem_dir}/specifications/%{gemname}-%{version}.gemspec
 
