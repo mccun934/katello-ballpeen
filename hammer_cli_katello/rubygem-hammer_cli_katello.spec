@@ -21,8 +21,8 @@ Source1: katello.yml
 Requires: ruby(abi)
 %endif
 Requires: ruby(rubygems)
-Requires: rubygem(hammer_cli_foreman_tasks) >= 0.1.0
-Requires: rubygem(hammer_cli_foreman_tasks) < 0.2.0
+Requires: rubygem(hammer_cli_foreman_tasks) >= 0.0.2
+Requires: rubygem(hammer_cli_foreman_tasks) < 0.1.0
 BuildRequires: ruby(rubygems)
 %if 0%{?fedora}
 BuildRequires: rubygems-devel
