@@ -9,7 +9,7 @@
 
 Summary: Universal command-line interface for Foreman
 Name: rubygem-%{gemname}
-Version: 0.1.0
+Version: 0.1.1
 Release: 1%{?dist}
 Group: Development/Languages
 License: GPLv3
@@ -22,7 +22,7 @@ Requires: ruby(abi)
 %endif
 
 Requires: ruby(rubygems)
-Requires: rubygem(hammer_cli) >= 0.1.0
+Requires: rubygem(hammer_cli) >= 0.1.1
 BuildRequires: ruby(rubygems)
 %if 0%{?fedora}
 BuildRequires: rubygems-devel
@@ -70,10 +70,15 @@ cp -pa .%{gem_dir}/* \
 %doc %{gem_dir}/doc/%{gemname}-%{version}
 %doc %{geminstdir}/README.md
 %doc %{geminstdir}/doc/host_create.md
+%doc %{geminstdir}/doc/configuration.md
 %doc %{geminstdir}/test
 
 
 %changelog
+* Tue May 20 2014 Martin Bačovský <martin.bacovsky@gmail.com> 0.1.1-1
+- Rebased hammer_cli_foreman to 0.1.1 (martin.bacovsky@gmail.com)
+- Removed credentials from config file (martin.bacovsky@gmail.com)
+
 * Wed Mar 26 2014 Martin Bačovský <martin.bacovsky@gmail.com> 0.1.0-1
 - Bump to 0.1.0 (martin.bacovsky@gmail.com)
 - hammer_cli_foreman - new config location (tstrachota@redhat.com)
