@@ -71,5 +71,3 @@ cp -pa .%{gem_dir}/* \
 %changelog
 * Wed Mar 26 2014 Mike McCune <mmccune@redhat.com> 0.0.1-1
 - initial version (mmccune@redhat.com)
-* Wed Nov 29 2014 Thomas McKay <thomasmckay@redhat.com>0.0.6-1
-- updates for katello-2.0
